@@ -1,3 +1,4 @@
 # Hangman Game
-- Exciting game! \\n
+- Exciting game!
+
 Guess the word before the man is hanged
