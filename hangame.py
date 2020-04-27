@@ -10,9 +10,7 @@ def cap(name):
 
 def worddic():
     word = random.choice(["dog", "cat", "cow", "horse", "pokemon", "banana", "avocado", "tiger", "orange", "avengers"])
-    validLettersMin = 'abcdefghijklmnopqrstuvwxyz'
-    validLettersMax = 'ABCEDFGHIJKLMNSOPQRSTUVWXYZ'
-    #converUpper = guess1.lower()
+    validLetters = 'abcdefghijklmnopqrstuvwxyzABCEDFGHIJKLMNSOPQRSTUVWXYZ'
     guessMade = ''
     count = 0
     while len(word) > 0:
@@ -31,16 +29,17 @@ def worddic():
         print("Enter guess: ")
         guess = input()
 
-        if guess in validLettersMax or guess in validLettersMin:
+        if guess in validLetters:
             converUpper = guess.lower()
             print("Good guess")
             guessMade = guessMade + converUpper
 
-        else:
-            print("Enter a valid character:")
+        while guess not in validLetters:
+            print("Enter a valid character!")
             guess = input()
+        guessMade = guessMade + guess
 
-        if guess not in word:
+        if guess.lower() not in word:
             count = count + 1
             if count == 1:
                 print("WRONG!")
@@ -89,6 +88,7 @@ def worddic():
                 print("   O_||")
                 print(" / | \  ")
                 print("  / \  ")
+                print("The word wanted was:", word)
                 print("Better luck next time")
                 break
 name = input("Enter your name: ")
